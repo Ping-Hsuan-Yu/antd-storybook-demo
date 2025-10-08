@@ -25,9 +25,10 @@
 - `Text / Link`：頁面內部輕量操作，限制無邊框。
 
 ### 尺寸
-- `size="large"`、`"middle"`、`"small"` 依 AntD 對應高度，若需自訂高度以 CSS 變數 `--btn-height-*` 定義。
+~~- `size="large"`、`"middle"`、`"small"` 依 AntD 對應高度，若需自訂高度以 CSS 變數 `--btn-height-*` 定義。~~
 
-### 狀態樣式
+
+~~### 狀態樣式~~
 | 狀態 | 行為說明 | 視覺重點 |
 | --- | --- | --- |
 | Hover | 允許操作 | 背景/邊框色提高 10% 明度，指標變更為 pointer。 |

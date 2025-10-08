@@ -14,14 +14,14 @@
 ## 資料夾結構
 ```
 src/
-  components/
-    <ComponentName>/
-      index.tsx
-      <ComponentName>.stories.tsx
-  stories/
-    examples/
-      <Scenario>.stories.tsx
-    (Storybook 範例初始化檔案)
+├── components/
+│   └── <ComponentName>/
+│       ├── <ComponentName>.tsx
+│       └── <ComponentName>.stories.tsx
+├── stories/
+│   └── examples/
+│       └── <Scenario>.stories.tsx
+│
 ```
 - 單一元件的原始碼與 Storybook story 放在 `src/components/<ComponentName>/`。
 - 跨元件的使用情境與流程展示集中在 `src/stories/examples/`。
