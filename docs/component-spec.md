@@ -15,46 +15,109 @@
 ## Buttons
 
 ### 使用情境
-- 呼叫主要動作或次要動作，例如提交流程、表單送出、切換狀態。
-- 優先使用 AntD `<Button />`，透過 `type`、`shape`、`icon` 等 props 調整樣式。
+- Ant Design 按鈕包裝元件，支援預設、主要、文字、連結、警示、載入、停用與圖示等多種狀態
+- 用於呼叫主要動作或次要動作，例如提交流程、表單送出、切換狀態
+- 優先使用 AntD `<Button />` 包裝，透過 `type`、`danger`、`loading`、`disabled` 等 props 調整樣式與行為
 
-### 樣式與層級
-- `Primary`：使用專案主色 `var(--color-primary)`，限定一頁內單一主要行為。
-- `Default`：白底或透明底，邊框使用 `var(--color-border-default)`。
-- `Dashed`：次要動作、建立新增流程等。
-- `Text / Link`：頁面內部輕量操作，限制無邊框。
+### 支援的 Props (ArgTypes)
 
-### 尺寸
-~~- `size="large"`、`"middle"`、`"small"` 依 AntD 對應高度，若需自訂高度以 CSS 變數 `--btn-height-*` 定義。~~
+| Props | 類型 | 說明 | 可選值 |
+| --- | --- | --- | --- |
+| `children` | `string` | 內容 | 任何字串 |
+| `type` | `string` | 按鈕類型 | `'default'`, `'primary'`, `'text'`, `'link'` |
+| `disabled` | `boolean` | 禁用 | `true`, `false` |
+| `loading` | `boolean` | 加載中 | `true`, `false` |
+| `danger` | `boolean` | 警示 | `true`, `false` |
+| `href` | `string` | 連結 | 任何有效 URL |
+| `icon` | `ReactNode` | 圖示 | Ant Design Icons 或自訂圖示 |
 
+### Storybook Story 變體
 
-~~### 狀態樣式~~
-| 狀態 | 行為說明 | 視覺重點 |
-| --- | --- | --- |
-| Hover | 允許操作 | 背景/邊框色提高 10% 明度，指標變更為 pointer。 |
-| Active | 點擊按下 | 加入 `box-shadow: inset 0 0 0 1px var(--color-primary-dark)`。 |
-| Disabled | 禁止操作 | 文案 `var(--color-text-disabled)`、背景 `var(--color-fill-disabled)`，游標為 not-allowed。 |
-| Loading | 執行中 | `loading` props 為 true，置換 icon 為旋轉動畫，保持按鈕寬度。 |
+#### Default 故事
+- **用途**: 預設按鈕，用於任何沒有主次之分的操作
+- **設定**: `children: '預設按鈕'`
+- **說明**: 展示按鈕的基本外觀與互動行為
 
-### Storybook 範例
-- 分別建立 `Primary`, `Default`, `Text` 等故事。
-- 使用 `controls` 讓使用者調整 `type`、`size`、`disabled`、`loading`。
-- Story 名稱範例：`Components/Button/Default`。
+#### Primary 故事
+- **用途**: 主要操作按鈕，建議每個區域僅保留一個以集中使用者焦點
+- **設定**: `type: 'primary', children: '主要按鈕'`
+- **說明**: 使用主色調突出重要操作，如提交表單、確認動作
 
-#### Button with Icon
-- `icon` 放於左側，預設使用 `@ant-design/icons` 套件。
-- 若需要右側 icon，改用 `iconPosition="end"`（自訂 props）或 `<Button><Space>...</Space></Button>` 排版。
-- 文字與 icon 間距採 `var(--space-xs)`。
-- 可用於引導操作，例如「新增」、「匯出」。
+#### Text 故事
+- **用途**: 次要操作文字按鈕，外觀平實以降低權重
+- **設定**: `type: 'text', children: '文字按鈕'`
+- **說明**: 適合輔助性操作，不干擾主要介面流程
 
-#### Button Only Icon
-- 使用 `shape="circle"` 或 `shape="default"` 搭配寬高等於 40px（依尺寸 token 調整）。
-- 需提供 `aria-label` 以符合可及性。
-- Hover/Active 狀態需保持 icon 對比足夠。
+#### Link 故事
+- **用途**: 連結型按鈕，模擬文字超連結樣式以導向外部或新頁面
+- **設定**: `type: 'link', children: '連結'`
+- **說明**: 視覺上與文字連結一致，適合導航性操作
 
-#### Button with Loading
-- 使用 AntD `loading` props；story 中展示 loading 與 disabled 的組合情況。
-- Loading 期間文字保持在原位，spinner 置於文字左側。
+#### WithIcon 故事
+- **用途**: 主要按鈕搭配圖示，強化辨識度並凸顯操作意圖
+- **設定**: `type: 'primary', icon: <HomeOutlined />, children: '首頁'`
+- **說明**: 圖示位於文字左側，提升按鈕的視覺辨識度
+
+#### Loading 故事
+- **用途**: 載入中按鈕，提供操作處理時的即時回饋並避免重複提交
+- **設定**: `type: 'primary', loading: true, children: 'Loading'`
+- **說明**: 顯示旋轉動畫，按鈕保持原尺寸且無法點擊
+
+#### Disabled 故事
+- **用途**: 禁用狀態的按鈕，提示操作暫不可用或需要額外條件
+- **設定**: `disabled: true, children: '禁用按鈕'`
+- **說明**: 視覺上顯示為灰色且無法互動，提示使用者操作不可用
+
+#### Danger 故事
+- **用途**: 警示用的危險按鈕，適合刪除或不可逆的操作並提醒使用者謹慎
+- **設定**: `type: 'primary', danger: true, children: '警示按鈕'`
+- **說明**: 使用紅色系配色，警示使用者操作的風險性
+
+#### IconOnly 故事
+- **用途**: 僅以圖示呈現的按鈕，適合工具列或空間受限的情境，建議搭配提示(Tooltip)
+- **設定**: `type: 'text', icon: <UserOutlined />`
+- **特殊渲染**: 使用 Tooltip 包裝提供說明文字
+- **說明**: 節省空間的設計，需確保圖示語意明確
+
+### 實作範例程式碼
+
+```typescript
+// Button.stories.tsx Meta 配置
+const meta: Meta<typeof Button> = {
+  title: 'Components/Button',
+  component: Button,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Ant Design 按鈕包裝元件，支援預設、主要、文字、連結、警示、載入、停用與圖示等多種狀態。',
+      },
+    },
+  },
+  argTypes: {
+    children: {
+      control: { type: 'text' },
+      description: '內容',
+      type: 'string',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['default', 'primary', 'text', 'link'],
+      description: '按鈕類型',
+      type: 'string',
+    },
+    // ... 其他 argTypes
+  },
+}
+```
+
+### 設計考量
+- **主要按鈕**: 每個頁面或區塊建議僅有一個，避免分散使用者注意力
+- **圖示使用**: 選用語意明確的圖示，與操作意圖相符
+- **載入狀態**: 提供即時回饋，防止重複提交
+- **無障礙設計**: IconOnly 按鈕需搭配 Tooltip 或 aria-label 提供說明
+- **危險操作**: Danger 按鈕應謹慎使用，僅用於不可逆或高風險操作
 
 ---
 

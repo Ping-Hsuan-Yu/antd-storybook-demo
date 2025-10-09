@@ -18,6 +18,7 @@ const preview: Preview = {
       },
     },
   },
+  tags: ['autodocs'],
   decorators: [
     (Story) => (
       <ConfigProvider locale={locale}>

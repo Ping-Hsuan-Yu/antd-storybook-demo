@@ -4,6 +4,13 @@ import Text from './Text'
 const meta: Meta<typeof Text> = {
   title: 'Components/Text',
   component: Text,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Text 組件用於顯示文字內容，支援複製功能。',
+      },
+    },
+  },
   argTypes: {
     copyable: {
       control: 'boolean',
@@ -31,6 +38,13 @@ export const Copyable: Story = {
   args: {
     children: '這是一段可複製的文字',
     copyable: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '範例：啟用 copyable 後會顯示複製按鈕。',
+      },
+    },
   },
 }
 

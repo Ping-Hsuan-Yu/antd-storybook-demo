@@ -8,6 +8,7 @@ const Button = ({
   danger,
   children,
   href,
+  ...props
 }: ButtonProps) =>{
   return (
     <AntdButton
@@ -17,6 +18,7 @@ const Button = ({
       loading={loading}
       danger={danger}
       href={href}
+      {...props}
       >
       {children}
     </AntdButton>
