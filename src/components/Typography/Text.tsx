@@ -1,10 +1,6 @@
-import { Typography } from 'antd'
 import type { TextProps } from 'antd/es/typography/Text'
+import Typography from './Typography'
 
-const AntdText = Typography.Text
-
-const Text = ({ copyable, children }: TextProps) => (
-  <AntdText copyable={copyable}>{children}</AntdText>
-)
+const Text = (props: TextProps) => <Typography.Text {...props} />
 
 export default Text

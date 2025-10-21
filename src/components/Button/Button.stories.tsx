@@ -29,7 +29,7 @@ const meta: Meta<typeof Button> = {
     },
     disabled: {
       control: { type: 'boolean' },
-      description: '禁用',
+      description: '是否禁用',
       type: 'boolean',
     },
     loading: {
@@ -154,7 +154,6 @@ export const Disabled: Story = {
 
 export const Danger: Story = {
   args: {
-    type: 'primary',
     danger: true,
     children: '警示按鈕',
   },

@@ -1,10 +1,6 @@
-import { Typography } from 'antd'
 import type { TitleProps } from 'antd/es/typography/Title'
+import Typography from './Typography'
 
-const AntdTitle = Typography.Title
-
-const Title = ({ level, children }: TitleProps) => (
-  <AntdTitle level={level}>{children}</AntdTitle>
-)
+const Title = (props: TitleProps) => <Typography.Title {...props} />
 
 export default Title
