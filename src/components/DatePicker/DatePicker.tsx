@@ -13,6 +13,7 @@ const DatePicker = ({
   name,
   rules,
   placeholder,
+  style,
 }: DatePickerProps & FormItemProps) => {
   return (
     <Form.Item required={required} label={label} name={name} rules={rules}>
@@ -20,6 +21,7 @@ const DatePicker = ({
         allowClear={required ? false : allowClear}
         disabled={disabled}
         placeholder={placeholder}
+        style={{ width: '100%', ...style }}
       />
     </Form.Item>
   )

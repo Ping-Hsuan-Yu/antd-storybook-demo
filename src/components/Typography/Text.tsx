@@ -1,5 +1,5 @@
+import { Typography } from 'antd'
 import type { TextProps } from 'antd/es/typography/Text'
-import Typography from './Typography'
 
 const Text = (props: TextProps) => <Typography.Text {...props} />
 

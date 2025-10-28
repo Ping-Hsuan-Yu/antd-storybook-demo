@@ -7,14 +7,6 @@ const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Ant Design 按鈕包裝元件，支援預設、主要、文字、連結、警示、載入、停用與圖示等多種狀態。',
-      },
-    },
-  },
   argTypes: {
     children: {
       control: { type: 'text' },

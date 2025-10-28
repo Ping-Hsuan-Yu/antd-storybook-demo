@@ -9,6 +9,7 @@ const RangePicker = ({
   label,
   name,
   rules,
+  style,
 }: RangePickerProps & FormItemProps) => {
   return (
     <Form.Item required={required} label={label} name={name} rules={rules}>
@@ -17,6 +18,7 @@ const RangePicker = ({
         disabled={disabled}
         showTime={showTime}
         format={showTime ? 'YYYY-MM-DD HH:mm' : 'YYYY-MM-DD'}
+        style={{ width: '100%', ...style }}
       />
     </Form.Item>
   )
