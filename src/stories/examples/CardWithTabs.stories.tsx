@@ -8,6 +8,7 @@ import Form from '../../components/Form/Form'
 import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
 import Select from '../../components/Select/Select'
+import Text from '../../components/Typography/Text'
 
 const meta: Meta<typeof Card> = {
   title: 'Examples/CardWithTabs',
@@ -50,7 +51,8 @@ const CardWithTabsWrapper = () => {
       title: '狀態',
       dataIndex: 'status',
       key: 'status',
-      render: (value: Customer['status']) => (value === 'Active' ? '啟用' : '停用'),
+      render: (value: Customer['status']) =>
+        value === 'Active' ? '啟用' : '停用',
     },
     { title: '建立日期', dataIndex: 'createdAt', key: 'createdAt' },
   ]
@@ -196,12 +198,10 @@ const CardWithTabsWrapper = () => {
             </Col>
           </Row>
         </Form>
-        <Divider />
-        <Table
-          columns={uploadColumns}
-          dataSource={uploadData}
-          rowKey='id'
-        />
+        <Divider>
+          <Text type='secondary'>總比數：{uploadData.length}</Text>
+        </Divider>
+        <Table columns={uploadColumns} dataSource={uploadData} rowKey='id' />
       </Flex>
     ),
   }
