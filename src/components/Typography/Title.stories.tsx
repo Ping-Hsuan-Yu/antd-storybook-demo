@@ -55,7 +55,7 @@ export const H4: Story = {
 
 export const H5: Story = {
   args: {
-    level: 2,
+    level: 5,
     children: 'H5 Title 標題',
   },
 }

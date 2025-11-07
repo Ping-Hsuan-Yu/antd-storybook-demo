@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { useState, useRef } from 'react'
-import { Button, Table, Flex, Space, Modal, Checkbox } from 'antd'
+import { Button, Flex, Space, Modal, Checkbox } from 'antd'
 import type { ColumnType } from 'antd/es/table'
 import { SettingOutlined, MenuOutlined } from '@ant-design/icons'
 import { DndProvider, useDrag, useDrop } from 'react-dnd'
@@ -9,6 +9,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import Card from '../../components/Card/Card'
 import Link from '../../components/Typography/Link'
 import SelectedCount from '../../components/SelectedCount/SelectedCount'
+import Table from '../../components/Table/Table'
 
 const meta: Meta<typeof Card> = {
   title: 'Examples/ResultTable',
