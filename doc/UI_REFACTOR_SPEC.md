@@ -288,20 +288,8 @@ function App() {
 ---
 
 ## 6. 系統頁面抽樣
-- FMS
-  - 
-- WES
-  - 
-- BMS
-  - 
-- GIS
-  - 
-- DMS
-  - 
-- TMS
-  - 
-- EIP
-  -
+
+### [請見Excel](https://alpglobal-my.sharepoint.com/:x:/g/personal/ping_yu_alp_global/IQBTzDPaf2PMRaQti6JnDT9ZAWWV_qSiIOrsvKOztsSWslQ)
 
 ### 跳脫頁面
 
